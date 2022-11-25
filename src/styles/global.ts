@@ -10,16 +10,30 @@ export const GlobalStyle = createGlobalStyle`
 
   :focus{
     outline: 0;
-    box-shadow: 0 0 0.15rem ${(props) => props.theme['blue-700']};;
+    box-shadow: 0 0 0.15rem ${(props) => props.theme['blue-400']};;
   }
 
   body{
-    background-color: ${(props) => props.theme['gray-700']};
+    background-color: ${(props) => props.theme['gray-800']};
     color: ${(props) => props.theme['gray-400']};
     font-size: 1rem;
     font-weight: 400;
     font-family: 'Noto Sans', sans-serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+  }
+
+  .flex_center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .container{
+    width: 100%;
+    max-width: ${(props) => props.theme['max-width']};
+    margin-inline: auto;
+    padding: 1rem;
   }
 `;
