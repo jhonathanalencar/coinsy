@@ -15,7 +15,7 @@ const summaryCardIcon = {
   income: <ArrowCircleUp />,
   expense: <ArrowCircleDown />,
 };
-
+const a = 2;
 export function SummaryCard({ title, amount, type, variant }: SummaryCard) {
   return (
     <S.CardContainer className='slide-down' type={type} variant={variant}>
