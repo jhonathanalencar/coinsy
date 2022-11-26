@@ -12,7 +12,7 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "src/**/*": [
+    "src/**/*.{tsx,ts}": [
       "npm run lint:fix"
     ]
   },
