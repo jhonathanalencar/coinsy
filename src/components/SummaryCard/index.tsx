@@ -18,7 +18,7 @@ const summaryCardIcon = {
 
 export function SummaryCard({ title, amount, type, variant }: SummaryCard) {
   return (
-    <S.CardContainer type={type} variant={variant}>
+    <S.CardContainer className='slide-down' type={type} variant={variant}>
       <header>
         <span>{title}</span>
         {summaryCardIcon[type]}
