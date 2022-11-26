@@ -5,6 +5,8 @@ export const SummaryContainer = styled.section`
   grid-template-columns: 1fr;
   gap: 1rem;
   margin-top: -5rem;
+  position: relative;
+  z-index: 1;
 
   div:first-child {
     grid-column: 1 / -1;

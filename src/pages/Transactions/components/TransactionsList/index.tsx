@@ -26,13 +26,13 @@ export function TransactionsList() {
     content = transactions.map((transaction) => {
       return (
         <tr key={transaction.id}>
-          <td>{transaction.description}</td>
-          <td className={`variant-${transaction.type}`}>
+          <td className='slide-down'>{transaction.description}</td>
+          <td className={`variant-${transaction.type} slide-down`}>
             {transaction.type === 'expense' && '-'}
             {priceFormatter.format(transaction.price)}
           </td>
-          <td>{transaction.category}</td>
-          <td>{dateFormatter.format(new Date(transaction.createdAt))}</td>
+          <td className='slide-down'>{transaction.category}</td>
+          <td className='slide-down'>{dateFormatter.format(new Date(transaction.createdAt))}</td>
         </tr>
       );
     });

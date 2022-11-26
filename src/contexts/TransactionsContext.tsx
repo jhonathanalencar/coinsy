@@ -32,7 +32,7 @@ export function TransactionsContextProvider({ children }: TransactionsContextPro
     const result = await api.get<TransactionType[]>('/transactions', {
       params: {
         _sort: 'createdAt',
-        _order: 'asc',
+        _order: 'desc',
         q: query,
       },
     });
@@ -41,7 +41,10 @@ export function TransactionsContextProvider({ children }: TransactionsContextPro
   }
 
   async function createTransaction(transaction: CreateTransactionData) {
-    const result = await api.post<TransactionType>('/transactions', transaction);
+    const result = await api.post<TransactionType>('/transactions', {
+      ...transaction,
+      createdAt: new Date(),
+    });
 
     setTransactions((prev) => {
       return [result.data, ...prev];

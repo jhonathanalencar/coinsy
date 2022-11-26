@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 
   :focus{
     outline: 0;
-    box-shadow: 0 0 0.15rem ${(props) => props.theme['blue-400']};;
+    box-shadow: 0 0 0 0.15rem ${(props) => props.theme['blue-400']};
   }
 
   body{
@@ -21,13 +21,6 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Noto Sans', sans-serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-  }
-
-  .flex_center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
   }
 
   .container{
