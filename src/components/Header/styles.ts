@@ -11,8 +11,8 @@ export const HeaderContainer = styled.header`
     content: '';
     position: absolute;
     inset: 0;
-    background-image: linear-gradient(0deg, #202026, #88373c);
-    margin-top: 4rem;
+    background-image: linear-gradient(0deg, #202026, transparent 60%);
+    margin-top: 5rem;
   }
 `;
 
