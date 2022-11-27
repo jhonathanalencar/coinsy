@@ -21,6 +21,7 @@ interface TransactionsContextData {
   createTransaction: (transaction: CreateTransactionData) => Promise<void>;
   selectTransaction: (data: TransactionType | null) => void;
   deleteTransaction: (data: Pick<TransactionType, 'id'>) => Promise<void>;
+  updateTransaction: (data: TransactionType) => Promise<void>;
 }
 
 interface TransactionsContextProviderProps {
@@ -72,6 +73,23 @@ export function TransactionsContextProvider({ children }: TransactionsContextPro
     setIsLoading(false);
   }, []);
 
+  const updateTransaction = useCallback(async (data: TransactionType) => {
+    setIsLoading(true);
+
+    await api.put(`/transactions/${data.id}`, { ...data });
+
+    setTransactions((prev) =>
+      prev.map((transaction) => {
+        if (transaction.id === data.id) {
+          return { ...data };
+        }
+
+        return { ...transaction };
+      }),
+    );
+    setIsLoading(false);
+  }, []);
+
   const selectTransaction = useCallback((data: TransactionType | null) => {
     setSelectedTransaction(data);
   }, []);
@@ -90,6 +108,7 @@ export function TransactionsContextProvider({ children }: TransactionsContextPro
         createTransaction,
         selectTransaction,
         deleteTransaction,
+        updateTransaction,
       }}
     >
       {children}

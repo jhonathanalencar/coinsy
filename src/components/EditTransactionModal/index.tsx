@@ -37,6 +37,11 @@ export function EditTransactionModal() {
     (context) => context.deleteTransaction,
   );
 
+  const updateTransaction = useContextSelector(
+    TransactionsContext,
+    (context) => context.updateTransaction,
+  );
+
   const {
     handleSubmit,
     register,
@@ -52,8 +57,18 @@ export function EditTransactionModal() {
     },
   });
 
-  function handleUpdate(data: EditTransactionFormInputs) {
-    console.log(data);
+  async function handleUpdateTransaction(data: EditTransactionFormInputs) {
+    if (!transaction) {
+      return;
+    }
+
+    try {
+      await updateTransaction({ ...data, id: transaction.id, createdAt: transaction.createdAt });
+
+      handleClose();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async function handleDeleteTransaction() {
@@ -78,7 +93,7 @@ export function EditTransactionModal() {
     <Dialog.Portal>
       <S.DialogOverlay>
         <S.DialogContent>
-          <form onSubmit={handleSubmit(handleUpdate)}>
+          <form onSubmit={handleSubmit(handleUpdateTransaction)}>
             <S.DialogClose type='button' onClick={handleClose} disabled={isSubmitting}>
               <X weight='bold' />
             </S.DialogClose>
@@ -133,7 +148,7 @@ export function EditTransactionModal() {
             />
 
             <S.ButtonsContainer>
-              <S.DeleteButton onClick={handleDeleteTransaction}>
+              <S.DeleteButton type='button' onClick={handleDeleteTransaction}>
                 {isLoading ? <ScaleLoader height={26} color='#e1e1e1' /> : 'Delete'}
               </S.DeleteButton>
 

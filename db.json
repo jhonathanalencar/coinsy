@@ -18,14 +18,6 @@
     },
     {
       "description": "Teste",
-      "price": 2000,
-      "category": "Venda",
-      "type": "income",
-      "createdAt": "2022-11-26T23:15:12.010Z",
-      "id": "YJFrpm-"
-    },
-    {
-      "description": "Teste",
       "price": 7600,
       "category": "Fratura do carro",
       "type": "expense",
@@ -42,22 +34,6 @@
     },
     {
       "description": "Teste",
-      "price": 2500,
-      "category": "Venda",
-      "type": "expense",
-      "createdAt": "2022-11-27T18:43:14.592Z",
-      "id": "u7EFEBP"
-    },
-    {
-      "description": "Teste",
-      "price": 2000,
-      "category": "Venda",
-      "type": "expense",
-      "createdAt": "2022-11-27T18:43:30.502Z",
-      "id": "QIgsFCf"
-    },
-    {
-      "description": "Teste",
       "price": 5000,
       "category": "Venda",
       "type": "expense",
@@ -66,11 +42,11 @@
     },
     {
       "description": "Teste",
-      "price": 500,
+      "price": 5200,
       "category": "aluguel",
       "type": "income",
-      "createdAt": "2022-11-27T18:44:31.156Z",
-      "id": "oR77iUV"
+      "id": "oR77iUV",
+      "createdAt": "2022-11-27T22:49:33.259Z"
     }
   ]
 }
