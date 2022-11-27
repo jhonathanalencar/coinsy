@@ -58,27 +58,11 @@
     },
     {
       "description": "Teste",
-      "price": 2000,
-      "category": "Alimentação",
-      "type": "income",
-      "createdAt": "2022-11-27T18:43:40.509Z",
-      "id": "T0hIUdl"
-    },
-    {
-      "description": "Teste",
       "price": 5000,
       "category": "Venda",
       "type": "expense",
       "createdAt": "2022-11-27T18:43:50.945Z",
       "id": "cSy81oP"
-    },
-    {
-      "description": "Teste",
-      "price": 2500,
-      "category": "Alimentação",
-      "type": "expense",
-      "createdAt": "2022-11-27T18:44:10.563Z",
-      "id": "beI-c_w"
     },
     {
       "description": "Teste",

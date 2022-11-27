@@ -10,6 +10,10 @@ export const TransactionsTable = styled.table`
     display: contents;
   }
 
+  tr {
+    cursor: pointer;
+  }
+
   td {
     color: ${(props) => props.theme['gray-400']};
     background-color: ${(props) => props.theme['gray-700']};

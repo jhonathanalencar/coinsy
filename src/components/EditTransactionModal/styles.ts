@@ -112,6 +112,8 @@ const Button = styled.button`
   border: none;
   border-radius: 0.25rem;
   padding: 0.5rem 0.75rem;
+  height: 3rem;
+  width: 5.5rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 
@@ -130,21 +132,36 @@ export const DeleteButton = styled(Button)`
   }
 `;
 
-export const CancelButton = styled(Button)`
-  background-color: ${(props) => props.theme['gray-400']};
-  color: ${(props) => props.theme['gray-100']};
-
-  &:not(:disabled):is(:hover, :focus) {
-    background-color: ${(props) => props.theme['gray-500']};
-  }
-`;
-
 export const UpdateButton = styled(Button)`
   background-color: ${(props) => props.theme['teal-500']};
   color: ${(props) => props.theme['gray-100']};
 
   &:not(:disabled):is(:hover, :focus) {
     background-color: ${(props) => props.theme['teal-600']};
+  }
+`;
+
+export const CancelButton = styled(Dialog.Close)`
+  background-color: ${(props) => props.theme['gray-400']};
+  color: ${(props) => props.theme['gray-100']};
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  height: 3rem;
+  width: 5.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):is(:hover, :focus) {
+    background-color: ${(props) => props.theme['gray-500']};
   }
 `;
 

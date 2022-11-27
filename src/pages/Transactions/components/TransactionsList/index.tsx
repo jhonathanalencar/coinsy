@@ -10,6 +10,10 @@ import * as S from './styles';
 export function TransactionsList() {
   const isLoading = useContextSelector(TransactionsContext, (context) => context.isLoading);
   const transactions = useContextSelector(TransactionsContext, (context) => context.transactions);
+  const selectTransaction = useContextSelector(
+    TransactionsContext,
+    (context) => context.selectTransaction,
+  );
 
   const listStart = useContextSelector(
     PaginationContext,
@@ -49,7 +53,7 @@ export function TransactionsList() {
       <tbody>
         {transactions.slice(listStart, listEnd).map((transaction) => {
           return (
-            <tr key={transaction.id}>
+            <tr key={transaction.id} onClick={() => selectTransaction(transaction)}>
               <td className='slide-down'>{transaction.description}</td>
               <td className={`variant-${transaction.type} slide-down`}>
                 {transaction.type === 'expense' && '- '}
