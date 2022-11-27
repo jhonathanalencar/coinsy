@@ -6,7 +6,7 @@ export const PaginationContainer = styled.div`
   justify-content: center;
   flex-direction: column;
 
-  @media (min-width: 25em) {
+  @media (min-width: 26em) {
     flex-direction: row;
     gap: 0.5rem;
   }
@@ -23,7 +23,7 @@ export const PagesContainer = styled.div`
   align-items: center;
   gap: 0.25rem;
 
-  @media (min-width: 25em) {
+  @media (min-width: 26em) {
     gap: 0.5rem;
     width: fit-content;
   }
@@ -61,11 +61,11 @@ export const PaginationButton = styled.button`
     cursor: not-allowed;
   }
 
-  @media (min-width: 25em) {
+  @media (min-width: 26em) {
     display: inline-flex;
   }
 
-  @media (min-width: 32em) {
+  @media (min-width: 36em) {
     span {
       display: block;
     }
@@ -76,7 +76,8 @@ export const PageButton = styled.button`
   background-color: ${(props) => props.theme['teal-500']};
   border: none;
   border-radius: 0.25rem;
-  padding: 0.5rem 1rem;
+  width: 3rem;
+  height: 2.5rem;
   color: ${(props) => props.theme['gray-100']};
   font-size: 1rem;
   font-weight: 700;
@@ -85,6 +86,10 @@ export const PageButton = styled.button`
 
   &:is(:hover, :focus) {
     background-color: ${(props) => props.theme['teal-400']};
+  }
+
+  &.active {
+    background-color: ${(props) => props.theme['red-400']};
   }
 `;
 
@@ -98,7 +103,7 @@ export const SmallScreenButtons = styled.div`
     display: inline-flex;
   }
 
-  @media (min-width: 25em) {
+  @media (min-width: 26em) {
     display: none;
   }
 `;

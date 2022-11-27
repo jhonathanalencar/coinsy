@@ -17,6 +17,7 @@ export function Pagination() {
     (context) => context.handleChangePage,
   );
   const disable = useContextSelector(PaginationContext, (context) => context.disable);
+  const activePage = useContextSelector(PaginationContext, (context) => context.activePage);
 
   return (
     <S.PaginationContainer className='container'>
@@ -27,7 +28,11 @@ export function Pagination() {
       <S.PagesContainer>
         {pages.map((page) => {
           return (
-            <S.PageButton key={page} onClick={() => handleChangePage(page)}>
+            <S.PageButton
+              key={page}
+              onClick={() => handleChangePage(page)}
+              className={activePage === page ? 'active' : ''}
+            >
               {page}
             </S.PageButton>
           );

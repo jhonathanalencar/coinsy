@@ -4,6 +4,7 @@ import { createContext, useContextSelector } from 'use-context-selector';
 import { TransactionsContext } from './TransactionsContext';
 
 interface PaginationContextData {
+  activePage: number;
   indexOfLastTransaction: number;
   indexOfFirstTransaction: number;
   currentPages: number[];
@@ -27,8 +28,8 @@ export function PaginationContextProvider({ children }: PaginationContextProvide
   const [activePage, setActivePage] = useState(1);
   const [startPage, setStartPage] = useState(0);
 
-  const transactionsPerPage = 1;
-  const maxPageAmount = 10;
+  const transactionsPerPage = 10;
+  const maxPageAmount = 5;
 
   const totalPages = Math.ceil(transactions.length / transactionsPerPage);
 
@@ -77,6 +78,7 @@ export function PaginationContextProvider({ children }: PaginationContextProvide
   return (
     <PaginationContext.Provider
       value={{
+        activePage,
         indexOfFirstTransaction,
         indexOfLastTransaction,
         currentPages,
