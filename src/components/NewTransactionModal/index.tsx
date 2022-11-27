@@ -4,6 +4,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useContextSelector } from 'use-context-selector';
+import ScaleLoader from 'react-spinners/ScaleLoader';
 
 import { TransactionsContext } from '../../contexts/TransactionsContext';
 
@@ -83,7 +84,7 @@ export function NewTransactionModal() {
               )}
             />
             <button type='submit' disabled={isSubmitting}>
-              Add
+              {isSubmitting ? <ScaleLoader height={26} color='#e1e1e1' /> : 'Add'}
             </button>
           </form>
         </S.DialogContent>
