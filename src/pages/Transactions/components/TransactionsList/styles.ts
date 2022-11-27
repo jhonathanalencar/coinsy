@@ -97,3 +97,9 @@ export const ErrorMessage = styled.tr`
     }
   }
 `;
+
+export const LoaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-block: 2rem;
+`;

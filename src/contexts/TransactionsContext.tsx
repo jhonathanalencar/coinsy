@@ -1,4 +1,4 @@
-import { useState, useEffect, ReactNode } from 'react';
+import { useState, useEffect, ReactNode, useCallback } from 'react';
 import { createContext } from 'use-context-selector';
 import { api } from '../libs/axios';
 
@@ -15,6 +15,7 @@ type CreateTransactionData = Omit<TransactionType, 'id' | 'createdAt'>;
 
 interface TransactionsContextData {
   transactions: TransactionType[];
+  isLoading: boolean;
   fetchTransactions: (query?: string) => Promise<void>;
   createTransaction: (transaction: CreateTransactionData) => Promise<void>;
 }
@@ -27,8 +28,11 @@ export const TransactionsContext = createContext({} as TransactionsContextData);
 
 export function TransactionsContextProvider({ children }: TransactionsContextProviderProps) {
   const [transactions, setTransactions] = useState<TransactionType[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  async function fetchTransactions(query?: string) {
+  const fetchTransactions = useCallback(async (query?: string) => {
+    setIsLoading(true);
+
     const result = await api.get<TransactionType[]>('/transactions', {
       params: {
         _sort: 'createdAt',
@@ -38,9 +42,12 @@ export function TransactionsContextProvider({ children }: TransactionsContextPro
     });
 
     setTransactions(result.data);
-  }
+    setIsLoading(false);
+  }, []);
 
-  async function createTransaction(transaction: CreateTransactionData) {
+  const createTransaction = useCallback(async (transaction: CreateTransactionData) => {
+    setIsLoading(true);
+
     const result = await api.post<TransactionType>('/transactions', {
       ...transaction,
       createdAt: new Date(),
@@ -49,16 +56,18 @@ export function TransactionsContextProvider({ children }: TransactionsContextPro
     setTransactions((prev) => {
       return [result.data, ...prev];
     });
-  }
+    setIsLoading(false);
+  }, []);
 
   useEffect(() => {
     fetchTransactions();
-  }, []);
+  }, [fetchTransactions]);
 
   return (
     <TransactionsContext.Provider
       value={{
         transactions,
+        isLoading,
         fetchTransactions,
         createTransaction,
       }}

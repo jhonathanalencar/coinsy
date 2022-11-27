@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { useContextSelector } from 'use-context-selector';
+import PulseLoader from 'react-spinners/PulseLoader';
 
 import { TransactionsContext } from '../../../../contexts/TransactionsContext';
 import { dateFormatter, priceFormatter } from '../../../../utils/formatter';
@@ -8,6 +9,7 @@ import * as S from './styles';
 
 export function TransactionsList() {
   const transactions = useContextSelector(TransactionsContext, (context) => context.transactions);
+  const isLoading = useContextSelector(TransactionsContext, (context) => context.isLoading);
 
   let content: ReactNode;
   if (!transactions) {
@@ -39,8 +41,16 @@ export function TransactionsList() {
   }
 
   return (
-    <S.TransactionsTable className='container'>
-      <tbody>{content}</tbody>
-    </S.TransactionsTable>
+    <>
+      {isLoading ? (
+        <S.LoaderContainer>
+          <PulseLoader size={24} color='#e1e1e1' />
+        </S.LoaderContainer>
+      ) : (
+        <S.TransactionsTable className='container'>
+          <tbody>{content}</tbody>
+        </S.TransactionsTable>
+      )}
+    </>
   );
 }
