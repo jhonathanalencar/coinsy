@@ -1,4 +1,5 @@
 import { ThemeProvider } from 'styled-components';
+import { PaginationContextProvider } from './contexts/PaginationContext';
 
 import { TransactionsContextProvider } from './contexts/TransactionsContext';
 
@@ -11,7 +12,9 @@ export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <TransactionsContextProvider>
-        <Transactions />
+        <PaginationContextProvider>
+          <Transactions />
+        </PaginationContextProvider>
       </TransactionsContextProvider>
 
       <GlobalStyle />

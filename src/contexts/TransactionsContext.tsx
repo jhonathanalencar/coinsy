@@ -2,7 +2,7 @@ import { useState, useEffect, ReactNode, useCallback } from 'react';
 import { createContext } from 'use-context-selector';
 import { api } from '../libs/axios';
 
-type TransactionType = {
+export type TransactionType = {
   id: string;
   description: string;
   price: number;
@@ -28,7 +28,7 @@ export const TransactionsContext = createContext({} as TransactionsContextData);
 
 export function TransactionsContextProvider({ children }: TransactionsContextProviderProps) {
   const [transactions, setTransactions] = useState<TransactionType[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchTransactions = useCallback(async (query?: string) => {
     setIsLoading(true);
