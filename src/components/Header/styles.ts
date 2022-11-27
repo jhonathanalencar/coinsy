@@ -49,7 +49,7 @@ export const NewTransactionButton = styled(Dialog.Trigger)`
   span {
     font-size: 1rem;
     font-weight: 700;
-    color: ${(props) => props.theme['gray-300']};
+    color: ${(props) => props.theme['gray-100']};
   }
 
   svg {
