@@ -16,8 +16,10 @@ type CreateTransactionData = Omit<TransactionType, 'id' | 'createdAt'>;
 interface TransactionsContextData {
   transactions: TransactionType[];
   isLoading: boolean;
+  selectedTransaction: TransactionType | null;
   fetchTransactions: (query?: string) => Promise<void>;
   createTransaction: (transaction: CreateTransactionData) => Promise<void>;
+  selectTransaction: (data: TransactionType) => void;
 }
 
 interface TransactionsContextProviderProps {
@@ -28,6 +30,7 @@ export const TransactionsContext = createContext({} as TransactionsContextData);
 
 export function TransactionsContextProvider({ children }: TransactionsContextProviderProps) {
   const [transactions, setTransactions] = useState<TransactionType[]>([]);
+  const [selectedTransaction, setSelectedTransaction] = useState<TransactionType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchTransactions = useCallback(async (query?: string) => {
@@ -59,6 +62,10 @@ export function TransactionsContextProvider({ children }: TransactionsContextPro
     setIsLoading(false);
   }, []);
 
+  function selectTransaction(data: TransactionType) {
+    setSelectedTransaction(data);
+  }
+
   useEffect(() => {
     fetchTransactions();
   }, [fetchTransactions]);
@@ -68,8 +75,10 @@ export function TransactionsContextProvider({ children }: TransactionsContextPro
       value={{
         transactions,
         isLoading,
+        selectedTransaction,
         fetchTransactions,
         createTransaction,
+        selectTransaction,
       }}
     >
       {children}
