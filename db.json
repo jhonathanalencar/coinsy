@@ -1,52 +1,84 @@
 {
   "transactions": [
     {
-      "id": "1",
       "description": "Rent",
-      "price": 1300,
-      "type": "expense",
+      "price": 2300,
       "category": "Home",
+      "type": "expense",
+      "id": "1",
       "createdAt": "2022-11-26T19:08:02.152Z"
     },
     {
-      "id": "2",
-      "description": "Venda de site",
-      "price": 13200.92,
-      "type": "income",
-      "category": "Sale",
-      "createdAt": "2022-11-26T19:14:10.659Z"
-    },
-    {
-      "description": "Teste",
-      "price": 7600,
-      "category": "Fratura do carro",
+      "description": "Cheese Pizza",
+      "price": 35,
+      "category": "Food",
       "type": "expense",
-      "createdAt": "2022-11-27T02:05:47.368Z",
-      "id": "GWQjkk2"
+      "createdAt": "2022-11-27T23:20:39.493Z",
+      "id": "A1zlCNE"
     },
     {
-      "description": "Teste",
-      "price": 2500,
-      "category": "Venda",
+      "description": "Salary",
+      "price": 7000,
+      "category": "Salary",
       "type": "income",
-      "createdAt": "2022-11-27T18:43:01.274Z",
-      "id": "1yBIBT0"
+      "createdAt": "2022-11-27T23:25:10.888Z",
+      "id": "Cn-Q3Jn"
     },
     {
-      "description": "Teste",
-      "price": 5000,
-      "category": "Venda",
+      "description": "Car Repair",
+      "price": 320,
+      "category": "Car",
       "type": "expense",
-      "createdAt": "2022-11-27T18:43:50.945Z",
-      "id": "cSy81oP"
+      "createdAt": "2022-11-27T23:29:21.440Z",
+      "id": "HV-c8Ax"
     },
     {
-      "description": "Teste",
-      "price": 5200,
-      "category": "aluguel",
+      "description": "Air Jordan",
+      "price": 800,
+      "category": "Clothing",
+      "type": "expense",
+      "createdAt": "2022-11-27T23:32:40.770Z",
+      "id": "dB1zOsU"
+    },
+    {
+      "description": "Groceries",
+      "price": 2400,
+      "category": "Food",
+      "type": "expense",
+      "createdAt": "2022-11-27T23:34:58.916Z",
+      "id": "9GTGcnQ"
+    },
+    {
+      "description": "Awesome Website",
+      "price": 4000,
+      "category": "Freelancing",
       "type": "income",
-      "id": "oR77iUV",
-      "createdAt": "2022-11-27T22:49:33.259Z"
+      "id": "2WTPYs7",
+      "createdAt": "2022-11-27T23:38:58.971Z"
+    },
+    {
+      "description": "Restaurant",
+      "price": 289,
+      "category": "Food",
+      "type": "expense",
+      "id": "KJOSzpf",
+      "createdAt": "2022-11-27T23:47:12.779Z"
+    },
+    {
+      "description": "Movie",
+      "price": 80,
+      "category": "Entertainment",
+      "type": "expense",
+      "createdAt": "2022-11-27T23:48:58.801Z",
+      "id": "GcIZR6A"
+    },
+    {
+      "description": "Book",
+      "price": 67,
+      "category": "Shopping",
+      "type": "expense",
+      "createdAt": "2022-11-28T00:46:51.965Z",
+      "id": "e9NrHyN"
     }
   ]
 }

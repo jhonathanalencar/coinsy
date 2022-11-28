@@ -57,16 +57,29 @@ export function NewTransactionModal() {
             </S.DialogClose>
             <S.DialogTitle>Add new transaction</S.DialogTitle>
             <label htmlFor='description'>Description</label>
-            <input type='text' placeholder='Description' required {...register('description')} />
+            <input
+              id='description'
+              type='text'
+              placeholder='Description'
+              required
+              {...register('description')}
+            />
             <label htmlFor='price'>Price</label>
             <input
+              id='price'
               type='number'
               placeholder='Price'
               required
               {...register('price', { valueAsNumber: true })}
             />
             <label htmlFor='category'>Category</label>
-            <input type='text' placeholder='Category' required {...register('category')} />
+            <input
+              id='category'
+              type='text'
+              placeholder='Category'
+              required
+              {...register('category')}
+            />
             <Controller
               name='type'
               control={control}
